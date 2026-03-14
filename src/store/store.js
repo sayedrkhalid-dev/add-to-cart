@@ -3,9 +3,9 @@ import { CART } from "./data.js";
 const isAllSelected = () => CART.every((item) => item.isSelected);
 
 const INITIAL_STATE = {
-  cart: { ...CART },
+  cart: [],
   selectedItems: [],
-  isAllSelected: isAllSelected(),
+  isAllSelected: false,
   wishlist: [],
   shipMethod: "standard",
   promoCode: null,
@@ -21,9 +21,7 @@ export const setState = (updater) => {
   state =
     typeof updater === "function" ? updater(state) : { ...state, ...updater };
 
-  return () => {
-    listeners = listeners.forEach((listener) => listener(getState()));
-  };
+  listeners.forEach((listener) => listener(getState()));
 };
 
 export const subscribe = (listener) => {

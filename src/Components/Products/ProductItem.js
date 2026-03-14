@@ -26,13 +26,13 @@ export default function ProductItem(product) {
   return `
     <li
       data-id="${id}"
-      class="product-item flex gap-2 hover:bg-gray-200/50 hover:bg-opacity-15 p-4 border-t border-gray-300"
+      class="${!isSelected && "opacity-50"} product-item flex gap-2 hover:bg-gray-200/50 hover:bg-opacity-15 p-4 border-t border-gray-300"
     >
       <input
         type="checkbox"
         name="select"
         id="select"
-        ${isSelected ? "checked" : ""}
+        ${isSelected && "checked"}
         class="scale-120"
       />
       <div class="flex-1 grid grid-cols-2 gap-y-4 sm:grid-cols-3 md:grid-cols-6">
